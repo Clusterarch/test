@@ -1,8 +1,6 @@
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
-    }
-
+    agent any
+    
     stages {
         stage('Build') {
             steps {
@@ -12,7 +10,6 @@ pipeline {
                     echo "Multiline shell steps works too"
                     ls -lah
                 '''
-                sh 'node --version'
             }
         }
         stage('Test') {
